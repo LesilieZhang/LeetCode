@@ -30,9 +30,13 @@ public class Kmp {
      * 计算模式串的前缀表
      * @param pattern
      * @return 返回模式串的前缀表
-     * 这个计算前缀表的过程可以通过使用两个指针i和j来完成。初始时，i指向模式串的第一个字符，j指向前缀的最后一个字符。
-     * 随着i的移动，如果pattern[i]和pattern[j]相等，我们就将j向后移动一位，
-     * 并将prefix[i]设置为j+1；如果pattern[i]和pattern[j]不相等，我们就让j回到prefix[j-1]的位置，继续尝试匹配。
+	 初始化：i表示后缀的最后一个字符，j表示前缀的最后一个字符，也表示包括i之前子串的最长相等前后缀的长度
+
+     这个计算前缀表的过程可以通过使用两个指针i和j来完成。
+	 初始时，i指向模式串的第一个字符，j指向前缀的最后一个字符。
+     * 随着i的移动，如果pattern[i]和pattern[j]相等（前后缀相同），我们就将j向后移动一位，
+     * 并将prefix[i]设置为j+1（表示最长相等前后缀的长度+1）；
+	 如果pattern[i]和pattern[j]不相等，我们就让j回到prefix[j-1]的位置，继续尝试匹配。
      */
     public static int[] getPrefixTable(String pattern) {
         int m = pattern.length();//记录长度
