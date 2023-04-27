@@ -16,6 +16,12 @@ public class Kmp {
         System.out.println(m);
     }
 
+    /**
+     * 开始匹配的位置
+     * @param haystack
+     * @param needle
+     * @return
+     */
     public int strStr(String haystack, String needle) {
         List<Integer> list=new ArrayList();
         list=kmp(haystack,needle);
