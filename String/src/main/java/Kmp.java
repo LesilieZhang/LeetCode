@@ -12,8 +12,18 @@ public class Kmp {
         String text = "aabaabaabaaf";
         String pattern = "aabaaf";
         Kmp kmp = new Kmp();
-        List<Integer> matches = kmp(text, pattern);
-        System.out.println("Matches found at: " + matches);
+        int m=kmp.strStr(text,pattern);
+        System.out.println(m);
+    }
+
+    public int strStr(String haystack, String needle) {
+        List<Integer> list=new ArrayList();
+        list=kmp(haystack,needle);
+        if(!list.isEmpty()) {
+            return list.get(0);
+        }else{
+            return -1;
+        }
     }
 
     /**
@@ -59,7 +69,7 @@ public class Kmp {
         int[] prefix = getPrefixTable(pattern);
         int i = 0, j = 0;
          while (i < n) {
-             if (text.charAt(i) == pattern.charAt(j)) {
+              if (text.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
             } else {
